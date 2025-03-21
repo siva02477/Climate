@@ -1,34 +1,40 @@
-async function getWeather() {
-    const city = document.getElementById('cityInput').value;
-    if (city === '') {
-        alert('Please enter a city name');
-        return;
-    }
+/* General Page Styling */
+body {
+    font-family: Arial, sans-serif;
+    background: linear-gradient(to right, #4facfe, #00f2fe);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
 
-    const apiKey = 'YOUR_API_KEY'; // Replace with your OpenWeatherMap API key
-    const url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&appid=${apiKey}`;
+/* Weather Widget Styling */
+.weather-widget {
+    background: white;
+    padding: 20px;
+    border-radius: 15px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    text-align: center;
+    width: 250px;
+}
 
-    try {
-        const response = await fetch(url);
-        const data = await response.json();
+.weather-icon {
+    font-size: 50px;
+}
 
-        if (data.cod !== 200) {
-            alert('City not found!');
-            return;
-        }
+.temperature {
+    font-size: 32px;
+    margin: 10px 0;
+    color: #333;
+}
 
-        const weatherHTML = `
-            <h3>${data.name}, ${data.sys.country}</h3>
-            <img src="https://openweathermap.org/img/wn/${data.weather[0].icon}@2x.png">
-            <p><strong>${data.weather[0].description.toUpperCase()}</strong></p>
-            <p>Temperature: ${data.main.temp}°C</p>
-            <p>Humidity: ${data.main.humidity}%</p>
-            <p>Wind Speed: ${data.wind.speed} m/s</p>
-        `;
+.location {
+    font-size: 18px;
+    color: #555;
+}
 
-        document.getElementById('weatherInfo').innerHTML = weatherHTML;
-    } catch (error) {
-        console.error('Error fetching weather data:', error);
-        alert('Could not fetch weather data.');
-    }
+.condition {
+    font-size: 16px;
+    color: #777;
 }
