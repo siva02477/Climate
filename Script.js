@@ -1,40 +1,45 @@
-/* General Page Styling */
-body {
-    font-family: Arial, sans-serif;
-    background: linear-gradient(to right, #4facfe, #00f2fe);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    margin: 0;
-}
+const apiKey = "YOUR_API_KEY"; // Replace with your OpenWeatherMap API key
 
-/* Weather Widget Styling */
-.weather-widget {
-    background: white;
-    padding: 20px;
-    border-radius: 15px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-    text-align: center;
-    width: 250px;
-}
+async function getWeather() {
+    const city = document.getElementById("city").value;
+    if (!city) {
+        alert("Please enter a city name!");
+        return;
+    }
 
-.weather-icon {
-    font-size: 50px;
-}
+    const url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&appid=${apiKey}`;
 
-.temperature {
-    font-size: 32px;
-    margin: 10px 0;
-    color: #333;
-}
+    try {
+        const response = await fetch(url);
+        const data = await response.json();
 
-.location {
-    font-size: 18px;
-    color: #555;
-}
+        if (data.cod === "404") {
+            alert("City not found!");
+            return;
+        }
 
-.condition {
-    font-size: 16px;
-    color: #777;
-}
+        document.getElementById("temperature").innerText = `${Math.round(data.main.temp)}°C`;
+        document.getElementById("location").innerText = data.name;
+        document.getElementById("condition").innerText = data.weather[0].description;
+
+        // Change icon based on weather condition
+        const weatherIcon = document.querySelector(".weather-icon");
+        const weatherMain = data.weather[0].main.toLowerCase();
+
+        if (weatherMain.includes("clear")) {
+            weatherIcon.innerText = "☀️";
+        } else if (weatherMain.includes("cloud")) {
+            weatherIcon.innerText = "☁️";
+        } else if (weatherMain.includes("rain")) {
+            weatherIcon.innerText = "🌧️";
+        } else if (weatherMain.includes("snow")) {
+            weatherIcon.innerText = "❄️";
+        } else {
+            weatherIcon.innerText = "⛅";
+        }
+
+    } catch (error) {
+        alert("Error fetching weather data!");
+        console.error(error);
+    }
+        }
