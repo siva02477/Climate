@@ -3,21 +3,23 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Weather Widget</title>
+    <title>Weather App</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
 
-    <div class="weather-widget">
-        <div class="weather-icon">
-            ☀️
-        </div>
-        <div class="weather-info">
-            <h2 class="temperature">25°C</h2>
-            <h3 class="location">New York, USA</h3>
-            <p class="condition">Sunny</p>
+    <div class="weather-container">
+        <input type="text" id="city" placeholder="Enter city name">
+        <button onclick="getWeather()">Get Weather</button>
+
+        <div class="weather-widget">
+            <div class="weather-icon">⛅</div>
+            <h2 id="temperature">--°C</h2>
+            <h3 id="location">City</h3>
+            <p id="condition">Condition</p>
         </div>
     </div>
 
+    <script src="script.js"></script>
 </body>
 </html>
