@@ -1,52 +1,41 @@
-// Get API key from OpenWeatherMap const apikey = 'YOUR_OPENWEATHERMAP_API_KEY';
+// Function to calculate weather conditions
+function calculateWeather(temperature, humidity, windSpeed) {
+    let weatherCondition = '';
 
-// Get HTML elements
+    // Calculate weather condition based on temperature
+    if (temperature < 0) {
+        weatherCondition = 'Freezing';
+    } else if (temperature < 15) {
+        weatherCondition = 'Cold';
+    } else if (temperature < 25) {
+        weatherCondition = 'Mild';
+    } else if (temperature < 35) {
+        weatherCondition = 'Warm';
+    } else {
+        weatherCondition = 'Hot';
+    }
 
-const searchBtn = document.getElementById('search-btn'); 
-const cityInput = document.getElementById('city'); 
-const weatherDataDiv = ocument.getElementById('weather-data');
+    // Calculate weather condition based on humidity
+    if (humidity > 80) {
+        weatherCondition += ' and Humid';
+    } else if (humidity < 40) {
+        weatherCondition += ' and Dry';
+    }
 
-// Add event listener to search button 
-searchBtn.addEventListener('click', () => {
+    // Calculate weather condition based on wind speed
+    if (windSpeed > 15) {
+        weatherCondition += ' with Strong Winds';
+    } else if (windSpeed > 5) {
+        weatherCondition += ' with Gentle Winds';
+    }
 
-// Get city name from input field 
-const city = cityInput.value.trim();
-
-// Check if city name is not empty
-
-if (city) {
-
-// Fetch weather data from OpenWeatherMap API
-fetch('https://api.openweathermap.org/data/2.5 /weather?q=${city}&appid=${apiKey}&units=metric^)
-
-.then(response => response.json())
-
-.then(data => {
-
-// Display weather data displayWeatherData(data);
-
-}) .catch(error => console.error(error));
-
+    return weatherCondition;
 }
 
-});
+// Example usage
+const temperature = 22; // in Celsius
+const humidity = 60; // in percentage
+const windSpeed = 10; // in km/h
 
-// Function to display weather data function displayWeatherData(data) {
-
-// Get weather data elements
-
-const weatherData =
-
-<h2>${data.name}</h2>
-
-<p>Temperature: ${data.main.temp}°C</p>
-
-<p>Humidity: ${data.main.humidity}%</p>
-
-<p>Weather: ${data.weather[0].description}</p>
-
-// Display weather data
-
-weather DataDiv.innerHTML = weather Data;
-
-    }
+const weatherCondition = calculateWeather(temperature, humidity, windSpeed);
+console.log(`The weather condition is: ${weatherCondition}`);
