@@ -11,9 +11,9 @@ body {
     background-color: #f2f2f2;
 }
 
-/* Weather App Container */
+/* Weather Calculator Container */
 
-.weather-app {
+.weather-calculator {
     max-width: 400px;
     margin: 40px auto;
     padding: 20px;
@@ -22,32 +22,43 @@ body {
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
-/* Weather App Header */
+/* Weather Calculator Header */
 
-.weather-app-header {
+.weather-calculator-header {
     background-color: #333;
     color: #fff;
     padding: 10px;
     border-radius: 10px 10px 0 0;
 }
 
-.weather-app-header h1 {
+.weather-calculator-header h1 {
     font-size: 24px;
     margin: 0;
 }
 
-/* Weather App Input Field */
+/* Weather Calculator Form */
 
-.weather-app-input {
-    padding: 10px;
-    border: none;
-    border-radius: 5px;
-    width: 100%;
+.weather-calculator-form {
+    padding: 20px;
 }
 
-/* Weather App Button */
+.weather-calculator-form label {
+    display: block;
+    margin-bottom: 10px;
+}
 
-.weather-app-btn {
+.weather-calculator-form input[type="number"] {
+    width: 100%;
+    height: 40px;
+    margin-bottom: 20px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+/* Weather Calculator Button */
+
+.weather-calculator-btn {
     background-color: #333;
     color: #fff;
     padding: 10px 20px;
@@ -56,48 +67,19 @@ body {
     cursor: pointer;
 }
 
-/* Weather App Data Container */
+/* Weather Calculator Result */
 
-.weather-app-data {
+.weather-calculator-result {
     padding: 20px;
+    border-top: 1px solid #ddd;
 }
 
-/* Weather App Data */
-
-.weather-app-data h2 {
+.weather-calculator-result h2 {
     font-size: 18px;
     margin-bottom: 10px;
 }
 
-.weather-app-data p {
+.weather-calculator-result p {
     font-size: 16px;
     margin-bottom: 20px;
-}
-
-/* Weather App Icon */
-
-.weather-app-icon {
-    width: 50px;
-    height: 50px;
-    margin-right: 10px;
-}
-
-/* Responsive Design */
-
-@media only screen and (max-width: 768px) {
-    .weather-app {
-        margin: 20px auto;
-    }
-}
-
-@media only screen and (max-width: 480px) {
-    .weather-app {
-        margin: 10px auto;
-    }
-    .weather-app-input {
-        padding: 5px;
-    }
-    .weather-app-btn {
-        padding: 5px 10px;
-    }
 }
