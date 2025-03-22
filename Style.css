@@ -1,41 +1,103 @@
+/* Global Styles */
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
 body {
     font-family: Arial, sans-serif;
-    background-color: #f0f0f0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
+    background-color: #f2f2f2;
+}
+
+/* Weather App Container */
+
+.weather-app {
+    max-width: 400px;
+    margin: 40px auto;
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Weather App Header */
+
+.weather-app-header {
+    background-color: #333;
+    color: #fff;
+    padding: 10px;
+    border-radius: 10px 10px 0 0;
+}
+
+.weather-app-header h1 {
+    font-size: 24px;
     margin: 0;
 }
 
-.container {
-    background: white;
-    padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    text-align: center;
-}
+/* Weather App Input Field */
 
-input {
+.weather-app-input {
     padding: 10px;
-    margin-right: 10px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
+    border: none;
+    border-radius: 5px;
+    width: 100%;
 }
 
-button {
-    padding: 10px 15px;
+/* Weather App Button */
+
+.weather-app-btn {
+    background-color: #333;
+    color: #fff;
+    padding: 10px 20px;
     border: none;
-    background-color: #007BFF;
-    color: white;
-    border-radius: 4px;
+    border-radius: 5px;
     cursor: pointer;
 }
 
-button:hover {
-    background-color: #0056b3;
+/* Weather App Data Container */
+
+.weather-app-data {
+    padding: 20px;
 }
 
-#weatherResult {
-    margin-top: 20px;
+/* Weather App Data */
+
+.weather-app-data h2 {
+    font-size: 18px;
+    margin-bottom: 10px;
+}
+
+.weather-app-data p {
+    font-size: 16px;
+    margin-bottom: 20px;
+}
+
+/* Weather App Icon */
+
+.weather-app-icon {
+    width: 50px;
+    height: 50px;
+    margin-right: 10px;
+}
+
+/* Responsive Design */
+
+@media only screen and (max-width: 768px) {
+    .weather-app {
+        margin: 20px auto;
+    }
+}
+
+@media only screen and (max-width: 480px) {
+    .weather-app {
+        margin: 10px auto;
+    }
+    .weather-app-input {
+        padding: 5px;
+    }
+    .weather-app-btn {
+        padding: 5px 10px;
+    }
 }
